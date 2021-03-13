@@ -1,4 +1,13 @@
 package com.csci448.malagon.civitasdei.ui.profile
 
-class AttendantProfileFragment {
+import androidx.fragment.app.Fragment
+
+/**
+ * Author: Jeremiah Navarro
+ * March 13, 2021
+ *
+ * Fragment for the profile page of a church attendant
+ */
+class AttendantProfileFragment: Fragment() {
+
 }
