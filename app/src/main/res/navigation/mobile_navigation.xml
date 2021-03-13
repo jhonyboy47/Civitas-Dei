@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_attendantProfileFragment"
+            app:destination="@id/attendantProfileFragment" />
     </fragment>
 
     <fragment
@@ -53,4 +56,8 @@
             android:name="searchTerms"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/attendantProfileFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.profile.AttendantProfileFragment"
+        android:label="AttendantProfileFragment" />
 </navigation>

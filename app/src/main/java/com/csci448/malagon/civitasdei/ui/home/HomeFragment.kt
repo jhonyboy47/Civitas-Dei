@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.csci448.malagon.civitasdei.R
 
 class HomeFragment : Fragment() {
@@ -26,6 +28,12 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        val profile: Button = root.findViewById(R.id.test_profile_button)
+        profile.setOnClickListener {
+            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_attendantProfileFragment)
+        }
+
         return root
     }
 }
