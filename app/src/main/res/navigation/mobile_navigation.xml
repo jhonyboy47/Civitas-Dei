@@ -38,14 +38,23 @@
         <action
             android:id="@+id/action_searchFragment_to_resultListFragment"
             app:destination="@id/resultListFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/churchProfileFragment"
         android:name="com.csci448.malagon.civitasdei.ui.profile.ChurchProfileFragment"
         android:label="ChurchProfileFragment" >
         <argument
-            android:name="churchID"
+            android:name="churchId"
             app:argType="java.util.UUID" />
+        <action
+            android:id="@+id/action_churchProfileFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_churchProfileFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/resultListFragment"
@@ -57,6 +66,12 @@
         <argument
             android:name="searchTerms"
             app:argType="string" />
+        <action
+            android:id="@+id/action_resultListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_resultListFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
     <fragment
         android:id="@+id/attendantProfileFragment"
