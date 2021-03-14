@@ -38,6 +38,16 @@ class ResultListFragment: Fragment() {
         Log.d(LOG_TAG, "onCreate() called")
         super.onCreate(savedInstanceState)
 
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d(LOG_TAG, "onCreateView() called")
+        _binding = FragmentResultListBinding.inflate(inflater, container, false)
         binding.resultButton.setOnClickListener {
             val action = ResultListFragmentDirections
                 .actionResultListFragmentToChurchProfileFragment(
@@ -55,15 +65,6 @@ class ResultListFragment: Fragment() {
                 .actionResultListFragmentToSearchFragment()
             findNavController().navigate(action)
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d(LOG_TAG, "onCreateView() called")
-        _binding = FragmentResultListBinding.inflate(inflater, container, false)
         return binding.root
     }
 

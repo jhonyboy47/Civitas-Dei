@@ -34,7 +34,15 @@ class SearchFragment: Fragment() {
 
         Log.d(LOG_TAG, "onCreate() called")
         super.onCreate(savedInstanceState)
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        Log.d(LOG_TAG, "onCreateView() called")
+        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         binding.cancelButton.setOnClickListener {
             val action = SearchFragmentDirections
                 .actionSearchFragmentToNavigationHome()
@@ -47,15 +55,6 @@ class SearchFragment: Fragment() {
                 )
             findNavController().navigate(action)
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        Log.d(LOG_TAG, "onCreateView() called")
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
 

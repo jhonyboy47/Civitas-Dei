@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -24,14 +25,19 @@ class HomeFragment : Fragment() {
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
 
+        val profileCheckSwitch: Switch = root.findViewById(R.id.test_church_profile_switch)
         val profile: Button = root.findViewById(R.id.test_profile_button)
         profile.setOnClickListener {
-            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_attendantProfileFragment)
+            if(!profileCheckSwitch.isChecked)
+                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_attendantProfileFragment)
+            else
+                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_churchProfileFragment)
+        }
+
+        val searchButton: Button = root.findViewById(R.id.search_nav_button)
+        searchButton.setOnClickListener {
+            Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_searchFragment)
         }
 
         return root
