@@ -7,7 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.csci448.malagon.civitasdei.databinding.FragmentResultListBinding
+import com.csci448.malagon.civitasdei.ui.search.SearchFragment
+import com.csci448.malagon.civitasdei.ui.search.SearchFragmentDirections
+import java.util.*
 
 /**
  * Author: Zabdiyel Tan
@@ -27,6 +31,30 @@ class ResultListFragment: Fragment() {
     override fun onAttach(context: Context) {
         Log.d(LOG_TAG, "onAttach() called")
         super.onAttach(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        Log.d(LOG_TAG, "onCreate() called")
+        super.onCreate(savedInstanceState)
+
+        binding.resultButton.setOnClickListener {
+            val action = ResultListFragmentDirections
+                .actionResultListFragmentToChurchProfileFragment(
+                    UUID.randomUUID()  // TODO: replace with church UUID rather than placeholder
+                )
+            findNavController().navigate(action)
+        }
+        binding.cancelButton.setOnClickListener {
+            val action = ResultListFragmentDirections
+                .actionResultListFragmentToNavigationHome()
+            findNavController().navigate(action)
+        }
+        binding.newSearchButton.setOnClickListener {
+            val action = ResultListFragmentDirections
+                .actionResultListFragmentToSearchFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateView(

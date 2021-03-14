@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.csci448.malagon.civitasdei.databinding.FragmentSearchBinding
 
 /**
@@ -27,6 +28,25 @@ class SearchFragment: Fragment() {
     override fun onAttach(context: Context) {
         Log.d(LOG_TAG, "onAttach() called")
         super.onAttach(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        Log.d(LOG_TAG, "onCreate() called")
+        super.onCreate(savedInstanceState)
+
+        binding.cancelButton.setOnClickListener {
+            val action = SearchFragmentDirections
+                .actionSearchFragmentToNavigationHome()
+            findNavController().navigate(action)
+        }
+        binding.searchButton.setOnClickListener {
+            val action = SearchFragmentDirections
+                .actionSearchFragmentToResultListFragment(
+                    binding.searchBar.text.toString()
+                )
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateView(
