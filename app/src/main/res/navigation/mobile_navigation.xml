@@ -13,6 +13,11 @@
         <action
             android:id="@+id/action_navigation_home_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_attendantProfileFragment"
+            app:destination="@id/attendantProfileFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
 
     <fragment
@@ -67,5 +72,14 @@
         <action
             android:id="@+id/action_resultListFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendantProfileFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.profile.AttendantProfileFragment"
+        android:label="AttendantProfileFragment" >
+        <action
+            android:id="@+id/action_attendantProfileFragment_to_navigation_home2"
+            app:destination="@id/navigation_home"
+            app:enterAnim="@anim/fragment_open_exit" />
     </fragment>
 </navigation>
