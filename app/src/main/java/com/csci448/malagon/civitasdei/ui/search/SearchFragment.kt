@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.csci448.malagon.civitasdei.databinding.FragmentProfileBinding
 import com.csci448.malagon.civitasdei.databinding.FragmentSearchBinding
 
 /**
