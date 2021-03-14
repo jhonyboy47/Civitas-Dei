@@ -1,5 +1,6 @@
 package com.csci448.malagon.civitasdei
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,6 +39,11 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+            val navHostFragment = supportFragmentManager.findFragmentByTag("nav_host_frag") as NavHostFragment
+            return findNavController(navHostFragment.id).navigateUp() || super.onSupportNavigateUp()
+        return false
+    }
 //    override fun onSupportNavigateUp(): Boolean {
 //        return findNavController(binding.navHostFragment.id).navigateUp()
 //                || super.onSupportNavigateUp()
