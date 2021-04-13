@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
 import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileListBinding
 import java.util.*
 
@@ -25,6 +27,12 @@ class ChurchProfileListFragment: Fragment() {
 
     companion object {
         private const val LOG_TAG = "448.ResultListFrag"
+    }
+
+    private lateinit var adapter: ChurchProfileListAdapter
+    private fun updateUI(entries: List<ChurchProfileEntry>) {
+        this.adapter = ChurchProfileListAdapter(entries)
+        binding.churchProfileListRecyclerView.adapter = this.adapter
     }
 
     override fun onAttach(context: Context) {
@@ -58,12 +66,24 @@ class ChurchProfileListFragment: Fragment() {
 //                .actionResultListFragmentToSearchFragment()
 //            findNavController().navigate(action)
 //        }
+        this.updateUI(emptyList())
+        binding.churchProfileListRecyclerView.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.d(LOG_TAG, "onViewCreated() called")
         super.onViewCreated(view, savedInstanceState)
+
+        entryListViewModel.entryListLiveData.observe(
+                viewLifecycleOwner,
+                { entries ->
+                    entries?.let {
+                        Log.d(LOG_TAG, "Got entries ${entries.size}")
+                        updateUI(entries)
+                    }
+                }
+        )
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

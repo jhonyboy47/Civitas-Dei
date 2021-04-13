@@ -56,6 +56,7 @@ class HomeFragment : Fragment() {
         }
 
         entryRepository = ChurchProfileEntryRepository.getInstance(requireContext())
+        this.addToCPDB()
 
         return root
     }
