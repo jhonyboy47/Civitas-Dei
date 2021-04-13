@@ -12,11 +12,26 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.csci448.malagon.civitasdei.R
+import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
+import com.csci448.malagon.civitasdei.data.repo.ChurchProfileEntryRepository
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
 
+    // NOTE: TEMPORARY FUNCTION FOR TESTING CHURCH PROFILE DATABASE FUNCTIONALITY
+    private fun addToCPDB() {
+        val churchProfileEntry = ChurchProfileEntry(
+            name = "TEST NAME",
+            address = "TEST ADDRESS",
+            description = "TEST DESCRIPTION",
+            numAttendants = 100,
+            numLikes = 100
+        )
+        entryRepository.addEntry(churchProfileEntry)
+    }
+
+    private lateinit var entryRepository: ChurchProfileEntryRepository
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -39,6 +54,8 @@ class HomeFragment : Fragment() {
         searchButton.setOnClickListener {
             Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_searchFragment)
         }
+
+        entryRepository = ChurchProfileEntryRepository.getInstance(requireContext())
 
         return root
     }

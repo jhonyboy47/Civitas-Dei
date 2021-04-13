@@ -19,7 +19,7 @@ abstract class ChurchProfileEntryDatabase: RoomDatabase() {
         private const val DATABASE_NAME = "church-attendant_profile-database"
         private var INSTANCE: ChurchProfileEntryDatabase? = null
 
-        fun getIntstance(context: Context): ChurchProfileEntryDatabase {
+        fun getInstance(context: Context): ChurchProfileEntryDatabase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {

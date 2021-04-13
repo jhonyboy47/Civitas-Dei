@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.csci448.malagon.civitasdei.databinding.FragmentResultListBinding
+import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileListBinding
 import java.util.*
 
 /**
@@ -19,7 +20,7 @@ import java.util.*
  */
 class ChurchProfileListFragment: Fragment() {
 
-    private var _binding: FragmentResultListBinding? = null
+    private var _binding: FragmentChurchProfileListBinding? = null
     private val binding get() = _binding!!  // valid b/n onCreateView and onDestroyView() only
 
     companion object {
@@ -31,12 +32,13 @@ class ChurchProfileListFragment: Fragment() {
         super.onAttach(context)
     }
 
+    private lateinit var entryListViewModel: ChurchProfileListViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        Log.d(LOG_TAG, "onCreate() called")
         super.onCreate(savedInstanceState)
 
-
+        val factory = ChurchProfileListViewModelFactory(requireContext())
+        entryListViewModel = ViewModelProvider(this@ChurchProfileListFragment, factory)
+            .get(ChurchProfileListViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -45,24 +47,17 @@ class ChurchProfileListFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.d(LOG_TAG, "onCreateView() called")
-        _binding = FragmentResultListBinding.inflate(inflater, container, false)
-        binding.resultButton.setOnClickListener {
-            val action = ChurchProfileListFragmentDirections
-                .actionResultListFragmentToChurchProfileFragment(
-                    UUID.randomUUID()  // TODO: replace with church UUID rather than placeholder
-                )
-            findNavController().navigate(action)
-        }
-        binding.cancelButton.setOnClickListener {
-            val action = ChurchProfileListFragmentDirections
-                .actionResultListFragmentToNavigationHome()
-            findNavController().navigate(action)
-        }
-        binding.newSearchButton.setOnClickListener {
-            val action = ChurchProfileListFragmentDirections
-                .actionResultListFragmentToSearchFragment()
-            findNavController().navigate(action)
-        }
+        _binding = FragmentChurchProfileListBinding.inflate(inflater, container, false)
+//        binding.cancelButton.setOnClickListener {
+//            val action = ChurchProfileListFragmentDirections
+//                .actionResultListFragmentToNavigationHome()
+//            findNavController().navigate(action)
+//        }
+//        binding.newSearchButton.setOnClickListener {
+//            val action = ChurchProfileListFragmentDirections
+//                .actionResultListFragmentToSearchFragment()
+//            findNavController().navigate(action)
+//        }
         return binding.root
     }
 
