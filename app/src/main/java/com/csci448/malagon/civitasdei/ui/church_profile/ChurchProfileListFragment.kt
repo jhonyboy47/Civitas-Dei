@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.result_list
+package com.csci448.malagon.civitasdei.ui.church_profile
 
 import android.content.Context
 import android.os.Bundle
@@ -9,8 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.csci448.malagon.civitasdei.databinding.FragmentResultListBinding
-import com.csci448.malagon.civitasdei.ui.search.SearchFragment
-import com.csci448.malagon.civitasdei.ui.search.SearchFragmentDirections
 import java.util.*
 
 /**
@@ -19,7 +17,7 @@ import java.util.*
  *
  * Fragment for the list of results after user searches
  */
-class ResultListFragment: Fragment() {
+class ChurchProfileListFragment: Fragment() {
 
     private var _binding: FragmentResultListBinding? = null
     private val binding get() = _binding!!  // valid b/n onCreateView and onDestroyView() only
@@ -49,19 +47,19 @@ class ResultListFragment: Fragment() {
         Log.d(LOG_TAG, "onCreateView() called")
         _binding = FragmentResultListBinding.inflate(inflater, container, false)
         binding.resultButton.setOnClickListener {
-            val action = ResultListFragmentDirections
+            val action = ChurchProfileListFragmentDirections
                 .actionResultListFragmentToChurchProfileFragment(
                     UUID.randomUUID()  // TODO: replace with church UUID rather than placeholder
                 )
             findNavController().navigate(action)
         }
         binding.cancelButton.setOnClickListener {
-            val action = ResultListFragmentDirections
+            val action = ChurchProfileListFragmentDirections
                 .actionResultListFragmentToNavigationHome()
             findNavController().navigate(action)
         }
         binding.newSearchButton.setOnClickListener {
-            val action = ResultListFragmentDirections
+            val action = ChurchProfileListFragmentDirections
                 .actionResultListFragmentToSearchFragment()
             findNavController().navigate(action)
         }
