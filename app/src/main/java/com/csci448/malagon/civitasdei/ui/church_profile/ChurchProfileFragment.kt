@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.profile
+package com.csci448.malagon.civitasdei.ui.church_profile
 
 import android.content.Context
 import android.os.Bundle
@@ -13,7 +13,7 @@ import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileBinding
  * Author: Zabdiyel Tan
  * March 13, 2021
  *
- * Fragment for the profile page of a church
+ * Fragment for the attendant_profile page of a church
  */
 class ChurchProfileFragment: Fragment() {
 

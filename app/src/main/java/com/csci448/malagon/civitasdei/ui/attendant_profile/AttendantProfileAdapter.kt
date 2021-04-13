@@ -1,8 +1,7 @@
-package com.csci448.malagon.civitasdei.ui.profile
+package com.csci448.malagon.civitasdei.ui.attendant_profile
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ExpandableListView
 import androidx.recyclerview.widget.RecyclerView
 import com.csci448.malagon.civitasdei.data.Post
 import com.csci448.malagon.civitasdei.databinding.RecyclerViewItemBinding

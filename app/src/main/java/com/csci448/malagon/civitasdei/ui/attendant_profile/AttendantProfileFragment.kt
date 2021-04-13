@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.profile
+package com.csci448.malagon.civitasdei.ui.attendant_profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.csci448.malagon.civitasdei.R
-import com.csci448.malagon.civitasdei.ui.home.HomeViewModel
 
 /**
  * Author: Jeremiah Navarro
  * March 13, 2021
  *
- * Fragment for the profile page of a church attendant
+ * Fragment for the attendant_profile page of a church attendant
  */
 class AttendantProfileFragment: Fragment() {
 

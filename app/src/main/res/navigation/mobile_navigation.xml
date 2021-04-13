@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/churchProfileFragment"
-        android:name="com.csci448.malagon.civitasdei.ui.profile.ChurchProfileFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.church_profile.ChurchProfileFragment"
         android:label="ChurchProfileFragment" >
         <argument
             android:name="churchId"
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/attendantProfileFragment"
-        android:name="com.csci448.malagon.civitasdei.ui.profile.AttendantProfileFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.attendant_profile.AttendantProfileFragment"
         android:label="AttendantProfileFragment" >
         <action
             android:id="@+id/action_attendantProfileFragment_to_navigation_home2"
