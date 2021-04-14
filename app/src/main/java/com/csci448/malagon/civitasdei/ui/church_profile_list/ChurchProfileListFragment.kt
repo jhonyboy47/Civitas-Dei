@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.church_profile
+package com.csci448.malagon.civitasdei.ui.church_profile_list
 
 import android.content.Context
 import android.os.Bundle
@@ -29,9 +29,18 @@ class ChurchProfileListFragment: Fragment() {
         private const val LOG_TAG = "448.ResultListFrag"
     }
 
+    interface Callbacks {
+        // interface implemented in MainActivity.kt, used in CrimeListFragment.kt
+        fun onResultSelected(churchId: UUID)
+    }
+
     private lateinit var adapter: ChurchProfileListAdapter
     private fun updateUI(entries: List<ChurchProfileEntry>) {
-        this.adapter = ChurchProfileListAdapter(entries)
+        this.adapter = ChurchProfileListAdapter(entries)  { entry: ChurchProfileEntry -> Unit
+            val action = ChurchProfileListFragmentDirections
+                    .actionResultListFragmentToChurchProfileFragment(churchId = entry.id)
+            findNavController().navigate(action)
+        }
         binding.churchProfileListRecyclerView.adapter = this.adapter
     }
 
@@ -56,16 +65,6 @@ class ChurchProfileListFragment: Fragment() {
     ): View? {
         Log.d(LOG_TAG, "onCreateView() called")
         _binding = FragmentChurchProfileListBinding.inflate(inflater, container, false)
-//        binding.cancelButton.setOnClickListener {
-//            val action = ChurchProfileListFragmentDirections
-//                .actionResultListFragmentToNavigationHome()
-//            findNavController().navigate(action)
-//        }
-//        binding.newSearchButton.setOnClickListener {
-//            val action = ChurchProfileListFragmentDirections
-//                .actionResultListFragmentToSearchFragment()
-//            findNavController().navigate(action)
-//        }
         this.updateUI(emptyList())
         binding.churchProfileListRecyclerView.layoutManager = LinearLayoutManager(context)
         return binding.root

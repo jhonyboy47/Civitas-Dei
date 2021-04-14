@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/churchProfileListFragment"
-        android:name="com.csci448.malagon.civitasdei.ui.church_profile.ChurchProfileListFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.church_profile_list.ChurchProfileListFragment"
         android:label="ChurchProfileListFragment">
         <action
             android:id="@+id/action_resultListFragment_to_churchProfileFragment"

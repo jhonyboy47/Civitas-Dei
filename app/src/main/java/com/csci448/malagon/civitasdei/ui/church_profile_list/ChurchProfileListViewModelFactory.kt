@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.church_profile
+package com.csci448.malagon.civitasdei.ui.church_profile_list
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.church_profile
+package com.csci448.malagon.civitasdei.ui.church_profile_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,8 @@ import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
 import com.csci448.malagon.civitasdei.databinding.ListItemChurchProfileBinding
 
 class ChurchProfileListAdapter(
-    private val entries: List<ChurchProfileEntry>
+    private val entries: List<ChurchProfileEntry>,
+    private val clickListener: (ChurchProfileEntry) -> Unit
 ): RecyclerView.Adapter<ChurchProfileEntryHolder>() {
 
     override fun getItemCount(): Int {
@@ -25,6 +26,6 @@ class ChurchProfileListAdapter(
 
     override fun onBindViewHolder(holder: ChurchProfileEntryHolder, position: Int) {
         val entry = entries[position]
-        holder.bind(entry)
+        holder.bind(entry, clickListener)
     }
 }
