@@ -7,9 +7,9 @@ import java.util.*
 @Entity
 data class AttendantProfileEntry (
     @PrimaryKey val id: UUID = UUID.randomUUID(),
-    val firstName: String,
-    val lastName: String,
-    val attendingChurch: String,
-    val bio: String,
-    val location: String
+    var firstName: String = "",
+    var lastName: String = "",
+    var attendingChurch: String = "",
+    var bio: String = "",
+    var location: String = ""
         )
