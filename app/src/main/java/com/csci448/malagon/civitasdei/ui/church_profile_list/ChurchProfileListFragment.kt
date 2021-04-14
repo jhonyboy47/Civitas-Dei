@@ -29,11 +29,6 @@ class ChurchProfileListFragment: Fragment() {
         private const val LOG_TAG = "448.ResultListFrag"
     }
 
-    interface Callbacks {
-        // interface implemented in MainActivity.kt, used in CrimeListFragment.kt
-        fun onResultSelected(churchId: UUID)
-    }
-
     private lateinit var adapter: ChurchProfileListAdapter
     private fun updateUI(entries: List<ChurchProfileEntry>) {
         this.adapter = ChurchProfileListAdapter(entries)  { entry: ChurchProfileEntry -> Unit
