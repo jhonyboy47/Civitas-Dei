@@ -10,8 +10,8 @@ class PostHolder(val binding: RecyclerViewItemBinding) : RecyclerView.ViewHolder
     fun bind(post: Post, clickListener: (Post) -> Unit){
         this.post = post
         itemView.setOnClickListener {clickListener(this.post)}
-        binding.postTitleTextView.text = this.post.title
-        binding.actionTextView.text = this.post.action
+        //binding.postTitleTextView.text = this.post.title
+        //binding.actionTextView.text = this.post.action
         binding.profileFeedTimeTextView.text = this.post.time.toString()
     }
 }

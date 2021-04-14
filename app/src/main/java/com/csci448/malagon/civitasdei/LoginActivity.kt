@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.csci448.malagon.civitasdei.data.AttendantProfileEntry
 import com.csci448.malagon.civitasdei.data.repo.AttendantProfileEntryRepository
 import com.csci448.malagon.civitasdei.databinding.ActivityMainBinding
+import com.csci448.malagon.civitasdei.ui.home.HomeFragment
 import com.csci448.malagon.civitasdei.ui.login.LoginViewModel
 import com.csci448.malagon.civitasdei.ui.login.LoginViewModelFactory
 import kotlinx.android.synthetic.main.fragment_login.*
+import java.util.*
 
 class LoginActivity: AppCompatActivity() {
 
@@ -27,7 +29,7 @@ class LoginActivity: AppCompatActivity() {
         attendant = AttendantProfileEntry()
         val factory = LoginViewModelFactory(this)
         loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
-
+        val homeFragment = HomeFragment
         val firstNameText: EditText = findViewById(R.id.editTextFirstName)
         val lastNameText: EditText = findViewById(R.id.editTextLastName)
         val churchText: EditText = findViewById(R.id.editTextAttendingChurch)
@@ -39,6 +41,7 @@ class LoginActivity: AppCompatActivity() {
                 attendant.lastName = lastNameText.text.toString()
                 attendant.attendingChurch = churchText.text.toString()
                 loginViewModel.addAttendant(attendant)
+                homeFragment.currentAttendantID = attendant.id
                 val main = Intent(this,MainActivity::class.java)
                 startActivity(main)
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
@@ -47,5 +50,9 @@ class LoginActivity: AppCompatActivity() {
             else
                 Toast.makeText(this, "One or more fields must not be left blank!", Toast.LENGTH_LONG).show()
         }
+    }
+
+    fun getAttendantId(): UUID {
+        return attendant.id
     }
 }

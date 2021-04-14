@@ -80,6 +80,9 @@
         android:id="@+id/attendantProfileFragment"
         android:name="com.csci448.malagon.civitasdei.ui.attendant_profile.AttendantProfileFragment"
         android:label="AttendantProfileFragment" >
+        <argument
+            android:name="attendantID"
+            app:argType="java.util.UUID" />
         <action
             android:id="@+id/action_attendantProfileFragment_to_navigation_home2"
             app:destination="@id/navigation_home"
