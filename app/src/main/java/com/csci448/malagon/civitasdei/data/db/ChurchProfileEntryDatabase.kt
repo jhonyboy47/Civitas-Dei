@@ -16,7 +16,7 @@ abstract class ChurchProfileEntryDatabase: RoomDatabase() {
     // singleton model
     companion object {
 
-        private const val DATABASE_NAME = "church-attendant_profile-database"
+        private const val DATABASE_NAME = "church_profile-database"
         private var INSTANCE: ChurchProfileEntryDatabase? = null
 
         fun getInstance(context: Context): ChurchProfileEntryDatabase {
