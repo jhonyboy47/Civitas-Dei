@@ -85,12 +85,4 @@
             app:destination="@id/navigation_home"
             app:enterAnim="@anim/fragment_open_exit" />
     </fragment>
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.csci448.malagon.civitasdei.ui.login.LoginFragment"
-        android:label="LoginFragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
 </navigation>
