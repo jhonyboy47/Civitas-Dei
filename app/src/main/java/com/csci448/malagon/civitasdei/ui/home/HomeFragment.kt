@@ -38,9 +38,9 @@ class HomeFragment : Fragment() {
     // NOTE: TEMPORARY FUNCTION FOR TESTING CHURCH PROFILE DATABASE FUNCTIONALITY
     private fun addToCPDB() {
         val churchProfileEntry = ChurchProfileEntry(
-            name = "TEST NAME",
-            address = "TEST ADDRESS",
-            description = "TEST DESCRIPTION",
+            name = "TEST CHURCH NAME",
+            address = "TEST CHURCH ADDRESS",
+            description = "TEST CHURCH DESCRIPTION",
             numAttendants = 100,
             numLikes = 100
         )
