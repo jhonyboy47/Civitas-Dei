@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/navigation_discover">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.csci448.malagon.civitasdei.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/navigation_discover"
+        android:name="com.csci448.malagon.civitasdei.ui.discover.DiscoverFragment"
+        android:label="@string/title_discover"
+        tools:layout="@layout/fragment_discover" >
         <action
             android:id="@+id/action_navigation_home_to_searchFragment"
             app:destination="@id/searchFragment" />
@@ -24,10 +24,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.csci448.malagon.civitasdei.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_feed"
+        android:name="com.csci448.malagon.civitasdei.ui.dashboard.FeedFragment"
+        android:label="@string/title_feed"
+        tools:layout="@layout/fragment_feed" />
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -43,7 +43,7 @@
             app:destination="@id/churchProfileListFragment" />
         <action
             android:id="@+id/action_searchFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_discover" />
     </fragment>
     <fragment
         android:id="@+id/churchProfileFragment"
@@ -57,7 +57,7 @@
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_churchProfileFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_discover" />
     </fragment>
     <fragment
         android:id="@+id/churchProfileListFragment"
@@ -74,7 +74,7 @@
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_resultListFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_discover" />
     </fragment>
     <fragment
         android:id="@+id/attendantProfileFragment"
@@ -85,7 +85,7 @@
             app:argType="java.util.UUID" />
         <action
             android:id="@+id/action_attendantProfileFragment_to_navigation_home2"
-            app:destination="@id/navigation_home"
+            app:destination="@id/navigation_discover"
             app:enterAnim="@anim/fragment_open_exit" />
     </fragment>
 </navigation>

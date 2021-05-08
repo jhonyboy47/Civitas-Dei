@@ -1,10 +1,10 @@
-package com.csci448.malagon.civitasdei.ui.home
+package com.csci448.malagon.civitasdei.ui.discover
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class DiscoverViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"

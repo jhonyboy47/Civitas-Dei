@@ -40,7 +40,7 @@
             android:layout_height="30dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:text="Attendants: "
+            android:text="@string/title_attendants"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="28dp"
-            android:text="Likes:"
+            android:text="@string/title_likes"
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,13 +72,16 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/church_profile_feed_recycler_view"
-            android:layout_width="337dp"
-            android:layout_height="258dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/layout_border"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/church_bio_text_view"
+            app:layout_constraintVertical_bias="0.0"
             tools:listitem="@layout/recycler_view_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

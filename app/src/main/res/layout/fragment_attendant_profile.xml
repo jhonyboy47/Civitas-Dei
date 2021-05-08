@@ -84,8 +84,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/profile_feed_recycler_view"
-        android:layout_width="335dp"
-        android:layout_height="255dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:background="@drawable/layout_border"
         app:layout_constraintEnd_toEndOf="parent"

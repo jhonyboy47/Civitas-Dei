@@ -7,15 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.data.AttendantProfileEntry
-import com.csci448.malagon.civitasdei.data.repo.AttendantProfileEntryRepository
-import com.csci448.malagon.civitasdei.ui.church_profile_list.ChurchProfileEntryHolder
-import com.csci448.malagon.civitasdei.ui.home.HomeFragment
-import com.csci448.malagon.civitasdei.ui.login.LoginViewModel
 
 /**
  * Author: Jeremiah Navarro
