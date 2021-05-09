@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "341526425",
+    "project_id": "civitas-dei",
+    "storage_bucket": "civitas-dei.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341526425:android:4100753a9d355f00f4b508",
+        "android_client_info": {
+          "package_name": "com.csci448.malagon.civitasdei"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341526425-okv136f3lillk69co901082s41t566sa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.csci448.malagon.civitasdei",
+            "certificate_hash": "f03ec7b133008bd7944c7596c9e5bf6f1be80581"
+          }
+        },
+        {
+          "client_id": "341526425-kvhgi95a9b0fivmj5t6t1op75dek9761.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-505q6OTtsbR4V66_fr5_lb1vCf5HDU8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341526425-kvhgi95a9b0fivmj5t6t1op75dek9761.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -13,6 +13,11 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.3.3'
     }
+
+    //Dependency for Firebase
+    dependencies{
+        classpath 'com.google.gms:google-services:4.3.5'
+    }
 }
 
 allprojects {

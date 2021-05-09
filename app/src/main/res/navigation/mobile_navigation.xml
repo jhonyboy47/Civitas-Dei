@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_feed"
-        android:name="com.csci448.malagon.civitasdei.ui.dashboard.FeedFragment"
+        android:name="com.csci448.malagon.civitasdei.ui.feed.FeedFragment"
         android:label="@string/title_feed"
         tools:layout="@layout/fragment_feed" />
 

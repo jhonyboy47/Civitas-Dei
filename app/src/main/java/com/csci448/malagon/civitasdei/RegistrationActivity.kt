@@ -9,21 +9,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.csci448.malagon.civitasdei.data.AttendantProfileEntry
 import com.csci448.malagon.civitasdei.ui.discover.DiscoverFragment
-import com.csci448.malagon.civitasdei.ui.login.LoginViewModel
-import com.csci448.malagon.civitasdei.ui.login.LoginViewModelFactory
+import com.csci448.malagon.civitasdei.ui.log_in.LogInViewModel
+import com.csci448.malagon.civitasdei.ui.log_in.LogInViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
-class LoginActivity: AppCompatActivity() {
+class RegistrationActivity: AppCompatActivity() {
 
     private lateinit var attendant: AttendantProfileEntry
-    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var logInViewModel: LogInViewModel
 
+
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_login)
+        setContentView(R.layout.fragment_registration)
         attendant = AttendantProfileEntry()
-        val factory = LoginViewModelFactory(this)
-        loginViewModel = ViewModelProvider(this, factory).get(LoginViewModel::class.java)
+        val factory = LogInViewModelFactory(this)
+        logInViewModel = ViewModelProvider(this, factory).get(LogInViewModel::class.java)
         val homeFragment = DiscoverFragment
         val firstNameText: EditText = findViewById(R.id.editTextFirstName)
         val lastNameText: EditText = findViewById(R.id.editTextLastName)
@@ -35,7 +38,7 @@ class LoginActivity: AppCompatActivity() {
                 attendant.firstName = firstNameText.text.toString()
                 attendant.lastName = lastNameText.text.toString()
                 attendant.attendingChurch = churchText.text.toString()
-                loginViewModel.addAttendant(attendant)
+                logInViewModel.addAttendant(attendant)
                 homeFragment.currentAttendantID = attendant.id
                 val main = Intent(this,MainActivity::class.java)
                 startActivity(main)
@@ -45,6 +48,8 @@ class LoginActivity: AppCompatActivity() {
             else
                 Toast.makeText(this, "One or more fields must not be left blank!", Toast.LENGTH_LONG).show()
         }
+
+
     }
 
     fun getAttendantId(): UUID {

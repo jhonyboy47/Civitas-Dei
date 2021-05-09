@@ -1,4 +1,4 @@
-package com.csci448.malagon.civitasdei.ui.dashboard
+package com.csci448.malagon.civitasdei.ui.feed
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
