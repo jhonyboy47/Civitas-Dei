@@ -69,6 +69,10 @@
         <action
             android:id="@+id/action_resultListFragment_to_navigation_home"
             app:destination="@id/navigation_discover" />
+        <argument
+            android:name="searchTerms"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/attendantProfileFragment"

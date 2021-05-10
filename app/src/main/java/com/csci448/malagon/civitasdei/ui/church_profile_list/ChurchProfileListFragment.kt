@@ -10,11 +10,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
 import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileListBinding
 import kotlinx.android.synthetic.main.fragment_church_profile_list.*
+import kotlinx.android.synthetic.main.list_item_church_profile.*
 import java.util.*
 
 /**
@@ -25,12 +27,36 @@ import java.util.*
  */
 class ChurchProfileListFragment: Fragment() {
 
-
+    private val args: ChurchProfileListFragmentArgs by navArgs()
 
     private lateinit var churchProfileListViewModel: ChurchProfileListViewModel
     private lateinit var adapter: ChurchProfileListAdapter
     companion object {
         private const val LOG_TAG = "448.ResultListFrag"
+    }
+
+    private fun updateUI(searchTerms: String?) {
+        Log.d(LOG_TAG, "updateUI() called")
+        churchProfileListViewModel.fetchChurches()
+        churchProfileListViewModel.churches.observe( viewLifecycleOwner, androidx.lifecycle.Observer {
+            adapter.setChurches(it)
+            for (church in churchProfileListViewModel.churches.value!!) {
+
+                Log.d(LOG_TAG, "Church name: ${church.name}, Search terms: $searchTerms")
+
+                //User id is what is being used here to find unique
+                if (searchTerms != null) {
+                    if (church.name == searchTerms.trim()) {
+                        Log.d(LOG_TAG, "found search match")
+                        result_title?.text = searchTerms
+
+                    }
+                }
+            }
+        })
+
+
+
     }
 
     override fun onCreateView(
@@ -54,13 +80,7 @@ class ChurchProfileListFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         church_profile_list_recycler_view.adapter = adapter
-        churchProfileListViewModel.fetchChurches()
-
-        churchProfileListViewModel.churches.observe( viewLifecycleOwner, androidx.lifecycle.Observer {
-
-            adapter.setChurches(it)
-
-        })
+        updateUI(args.searchTerms)
     }
 
 

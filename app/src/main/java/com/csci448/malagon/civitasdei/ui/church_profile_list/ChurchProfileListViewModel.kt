@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.csci448.malagon.civitasdei.FBdata.Church
 import com.csci448.malagon.civitasdei.FBdata.NODE_CHURCHES
-import com.csci448.malagon.civitasdei.data.repo.ChurchProfileEntryRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -22,7 +21,7 @@ class ChurchProfileListViewModel(): ViewModel() {
         get() = _result
 
 
-    private val dpChurches = FirebaseDatabase.getInstance().getReference(NODE_CHURCHES)
+    private val dbChurches = FirebaseDatabase.getInstance().getReference(NODE_CHURCHES)
 
 
     private val _churches = MutableLiveData<List<Church>>()
@@ -32,7 +31,7 @@ class ChurchProfileListViewModel(): ViewModel() {
 
     fun fetchChurches(){
 
-        dpChurches.addValueEventListener(object : ValueEventListener{
+        dbChurches.addValueEventListener(object : ValueEventListener{
 
             override fun onDataChange(snapshot: DataSnapshot) {
 
@@ -55,5 +54,9 @@ class ChurchProfileListViewModel(): ViewModel() {
                 TODO("Not yet implemented")
             }
         })
+    }
+
+    fun fetchFilteredChurches(searchTerms: String) {
+
     }
 }
