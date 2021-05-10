@@ -8,12 +8,12 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="399dp"
-        tools:listitem="@layout/recycler_view_item"
-        android:id="@+id/feed_recycler_view"/>
+        tools:listitem="@layout/recycler_view_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

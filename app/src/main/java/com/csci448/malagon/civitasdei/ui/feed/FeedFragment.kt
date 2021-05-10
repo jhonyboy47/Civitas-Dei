@@ -22,6 +22,10 @@ class FeedFragment : Fragment() {
                 ViewModelProvider(this).get(FeedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_feed, container, false)
         val feedRecyclerView: RecyclerView = root.findViewById(R.id.feed_recycler_view)
+
+
+
+
         return root
     }
 }

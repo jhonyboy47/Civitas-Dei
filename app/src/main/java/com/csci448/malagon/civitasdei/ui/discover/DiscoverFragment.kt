@@ -13,44 +13,36 @@ import androidx.navigation.Navigation
 import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
 import com.csci448.malagon.civitasdei.data.repo.ChurchProfileEntryRepository
+import com.google.firebase.auth.FirebaseAuth
 import java.lang.ClassCastException
 import java.util.*
 
 class DiscoverFragment : Fragment() {
 
-    interface Callbacks {
-        fun getAttendantID(): UUID
-    }
+//    interface Callbacks {
+//        fun getAttendantID(): UUID
+//    }
 
     private lateinit var discoverViewModel: DiscoverViewModel
 
-    private var _callbacks: Callbacks? = null
-    private val callbacks get() = _callbacks!!
+//    private var _callbacks: Callbacks? = null
+//    private val callbacks get() = _callbacks!!
 
-    companion object{
-        public lateinit var currentAttendantID: UUID
-    }
+    private lateinit var firebaseAuth: FirebaseAuth
+//    companion object{
+//        public lateinit var currentAttendantID: UUID
+//    }
 
-    // NOTE: TEMPORARY FUNCTION FOR TESTING CHURCH PROFILE DATABASE FUNCTIONALITY
-    private fun addToCPDB() {
-        val churchProfileEntry = ChurchProfileEntry(
-            name = "TEST CHURCH NAME",
-            address = "TEST CHURCH ADDRESS",
-            description = "TEST CHURCH DESCRIPTION",
-            numAttendants = 100,
-            numLikes = 100
-        )
-        entryRepository.addEntry(churchProfileEntry)
-    }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        try{
-            _callbacks = (context as Callbacks)
-        } catch(e: ClassCastException) {
 
-        }
-    }
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//        try{
+//            _callbacks = (context as Callbacks)
+//        } catch(e: ClassCastException) {
+//
+//        }
+//    }
 
     private lateinit var entryRepository: ChurchProfileEntryRepository
     override fun onCreateView(
@@ -68,8 +60,7 @@ class DiscoverFragment : Fragment() {
         profile.setOnClickListener {
             if(!profileCheckSwitch.isChecked){
 
-                val action = DiscoverFragmentDirections.actionNavigationHomeToAttendantProfileFragment(
-                    currentAttendantID)
+                val action = DiscoverFragmentDirections.actionNavigationHomeToAttendantProfileFragment()
                 Navigation.findNavController(root).navigate(action)
             }
             else
@@ -81,9 +72,25 @@ class DiscoverFragment : Fragment() {
             Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_searchFragment)
         }
 
-        entryRepository = ChurchProfileEntryRepository.getInstance(requireContext())
-        this.addToCPDB()
+
+
+//TODO: This will change to Firebase stuff
+//        entryRepository = ChurchProfileEntryRepository.getInstance(requireContext())
+//        this.addToCPDB()
 
         return root
     }
+
+
+    // NOTE: TEMPORARY FUNCTION FOR TESTING CHURCH PROFILE DATABASE FUNCTIONALITY
+//    private fun addToCPDB() {
+//        val churchProfileEntry = ChurchProfileEntry(
+//            name = "TEST CHURCH NAME",
+//            address = "TEST CHURCH ADDRESS",
+//            description = "TEST CHURCH DESCRIPTION",
+//            numAttendants = 100,
+//            numLikes = 100
+//        )
+//        entryRepository.addEntry(churchProfileEntry)
+//    }
 }

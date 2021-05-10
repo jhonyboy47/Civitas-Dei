@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.csci448.malagon.civitasdei.FBdata.Church
 import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileBinding
+import com.google.firebase.database.FirebaseDatabase
 
 /**
  * Author: Zabdiyel Tan
@@ -19,8 +22,7 @@ class ChurchProfileFragment: Fragment() {
 
     private var _binding: FragmentChurchProfileBinding? = null
     private val binding get() = _binding!!  // valid b/n onCreateView and onDestroyView() only
-
-    companion object {
+     companion object {
         private const val LOG_TAG = "448.ChurchProfileFrag"
     }
 
@@ -36,6 +38,26 @@ class ChurchProfileFragment: Fragment() {
     ): View? {
         Log.d(LOG_TAG, "onCreateView() called")
         _binding = FragmentChurchProfileBinding.inflate(inflater, container, false)
+
+
+//        val ref = FirebaseDatabase.getInstance().getReference("Churches")
+//        val churchID = ref.push().key
+//        val church = churchID?.let { Church(it, "Intimidad Con Dios", "Returning family to its original design", 42) }
+//
+//        if (churchID != null) {
+//            ref.child(churchID).setValue(church).addOnCompleteListener({
+//                Toast.makeText(this.context, "Church saved succesfully", Toast.LENGTH_LONG ).show()
+//            })
+//        }
+//
+//        if (church != null) {
+//            binding.churchBioTextView.text = church.bio
+//            binding.churchNameTextView.text = church.name
+//            binding.numLikesTextView.text = church.attendants.toString()
+//
+//        }
+
+
         return binding.root
     }
 

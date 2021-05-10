@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Civitas Dei</string>
 
-     <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Notifications</string>
     <string name="cancel">Cancel</string>
     <string name="search">Search</string>
     <string name="new_search">New Search</string>
@@ -19,4 +19,15 @@
     <string name="Title_e_mail">E-mail</string>
     <string name="title_password">Password</string>
     <string name="title_church">Church</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="title_log_out">Log Out</string>
+    <string name="title_favorite_bible_verse">Favorite Bible Verse</string>
+    <string name="title_apply">Apply</string>
+    <string name="Title_full_name">Full Name</string>
+    <string name="title_activity_registration_data">RegistrationData</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
