@@ -11,9 +11,10 @@ import kotlinx.android.synthetic.main.fragment_church_profile_list.view.*
 import kotlinx.android.synthetic.main.list_item_church_profile.view.*
 import kotlinx.android.synthetic.main.recycler_view_item_1.view.*
 
-class ChurchProfileListAdapter: RecyclerView.Adapter<ChurchProfileListAdapter.ChurchViewModel>() {
-
-    private var churches = mutableListOf<Church>()
+class ChurchProfileListAdapter(
+        private var churches: List<Church>,
+        private val clickListener: (Church) -> Unit
+): RecyclerView.Adapter<ChurchProfileListAdapter.ChurchViewModel>() {
 
     fun setChurches(churches: List<Church>) {
         this.churches = churches as MutableList<Church>
@@ -31,35 +32,12 @@ class ChurchProfileListAdapter: RecyclerView.Adapter<ChurchProfileListAdapter.Ch
 
     override fun onBindViewHolder(holder: ChurchViewModel, position: Int) {
         holder.itemView.result_title.text = churches[position].name
+        holder.itemView.setOnClickListener {
+            clickListener(churches[position])
+        }
     }
 
     class ChurchViewModel(val view: View): RecyclerView.ViewHolder(view)
-
-//    private var churches = mutableListOf<Church>()
-//
-//    fun setChurches (churches: List<Church>){
-//        this.churches = churches as MutableList<Church>
-//        notifyDataSetChanged()
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return churches.size
-//    }
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ChurchViewModel (
-//
-//        LayoutInflater.from(parent.context)
-//            .inflate(R.layout.recycler_view_item, parent, false)
-//            )
-//
-//    override fun onBindViewHolder(holder: ChurchViewModel, position: Int) {
-//        val itemView = holder.itemView
-//        itemView.result_title.text = churches[position].name
-////        itemView.church_mission_tv.text = churches[position].mission
-////        itemView.church_members_tv.text = churches[position].members.toString()
-//     }
-//    class ChurchViewModel(val view: View) : RecyclerView.ViewHolder(view)
-
 }
 
 

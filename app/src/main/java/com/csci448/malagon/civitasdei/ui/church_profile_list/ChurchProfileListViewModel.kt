@@ -51,49 +51,4 @@ class ChurchProfileListViewModel(): ViewModel() {
             }
         })
     }
-
-
-//    private val _result = MutableLiveData<Exception?>()
-//    val result: LiveData<Exception?>
-//        get() = _result
-//
-//
-//    private val dbChurches = FirebaseDatabase.getInstance().getReference(NODE_CHURCHES)
-//
-//
-//    private val _churches = MutableLiveData<List<Church>>()
-//    val churches: LiveData<List<Church>>
-//        get() = _churches
-//
-//
-//    fun fetchChurches(){
-//
-//        dbChurches.addValueEventListener(object : ValueEventListener{
-//
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//
-//                if(snapshot.exists()) {
-//                    val churches = mutableListOf<Church>()
-//                    for( snap in snapshot.children) {
-//                        val church = snap.getValue(Church::class.java)
-//                        church?.id = snap.key.toString()
-//                        church.let {
-//                            if (it != null) {
-//                                churches.add(it)
-//                            }
-//                        }
-//                    }
-//                    _churches.value = churches
-//                }
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//    }
-//
-//    fun fetchFilteredChurches(searchTerms: String) {
-//
-//    }
 }
