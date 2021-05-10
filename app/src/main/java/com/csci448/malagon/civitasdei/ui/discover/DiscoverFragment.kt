@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.lang.ClassCastException
 import java.util.*
 
-class DiscoverFragment : Fragment() {
+class DiscoverFragment : Fragment()  {
 
 //    interface Callbacks {
 //        fun getAttendantID(): UUID

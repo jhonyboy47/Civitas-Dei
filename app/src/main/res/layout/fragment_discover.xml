@@ -7,8 +7,8 @@
     tools:context=".ui.discover.DiscoverFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="362dp"
+        android:layout_height="779dp"
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,11 +21,12 @@
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:id="@+id/constraintLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="313dp"
+            android:layout_height="47dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout4"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread_inside">
@@ -39,11 +40,12 @@
                 android:layout_marginBottom="20dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/app_name"
-                android:textSize="36sp"
+                android:textSize="25sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/test_profile_button"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/test_profile_button"
@@ -63,20 +65,20 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="339dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.54"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
             <Button
                 android:id="@+id/search_nav_button"
-                android:layout_width="157dp"
-                android:layout_height="64dp"
+                android:layout_width="110dp"
+                android:layout_height="51dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:backgroundTint="#00FFFFFF"
@@ -89,8 +91,8 @@
 
             <Button
                 android:id="@+id/my_churches_button"
-                android:layout_width="157dp"
-                android:layout_height="64dp"
+                android:layout_width="162dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginEnd="32dp"
                 android:backgroundTint="#00FFFFFF"
@@ -121,20 +123,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/discover_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="356dp"
+            android:layout_height="444dp"
             android:layout_marginTop="8dp"
-
-
-            android:background="@drawable/layout_border"
+            android:id="@+id/map_constraint_layout"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-            tools:listitem="@layout/recycler_view_item" />
+            app:layout_constraintVertical_bias="0.0">
+
+            <fragment
+                android:id="@+id/map_fragment"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="334dp"
+                android:layout_height="295dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.077"
+                tools:context="com.example.mapwithmarker.MapsMarkerActivity" />
+
+            <LinearLayout
+                android:layout_width="355dp"
+                android:layout_height="298dp"
+                android:layout_marginBottom="136dp"
+                android:background="@drawable/layout_border"
+                app:layout_constraintBottom_toBottomOf="@id/map_constraint_layout"
+                app:layout_constraintEnd_toEndOf="@id/map_constraint_layout">
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
