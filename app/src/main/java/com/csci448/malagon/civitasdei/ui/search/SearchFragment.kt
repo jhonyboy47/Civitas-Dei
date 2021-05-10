@@ -29,7 +29,7 @@ class SearchFragment: Fragment() {
 
 
     companion object {
-        private const val LOG_TAG = "448.ChurchProfileFrag"
+        private const val LOG_TAG = "448.SearchFrag"
     }
 
     override fun onAttach(context: Context) {

@@ -9,7 +9,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.ktx.Firebase
 import java.lang.Exception
 
 class FeedViewModel : ViewModel() {
@@ -18,18 +17,13 @@ class FeedViewModel : ViewModel() {
     val result: LiveData<Exception?>
         get() = _result
 
-
     private val dbPosts = FirebaseDatabase.getInstance().getReference(NODE_POSTS)
 
-
     private val _posts = MutableLiveData<List<Post>>()
-
     val posts: LiveData<List<Post>>
         get() = _posts
 
-
     private val _post = MutableLiveData<Post>()
-
     val post: LiveData<Post>
         get() = _post
 

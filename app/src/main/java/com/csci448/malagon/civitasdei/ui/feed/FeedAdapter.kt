@@ -10,10 +10,9 @@ import com.csci448.malagon.civitasdei.FBdata.Post
 import com.csci448.malagon.civitasdei.R
 import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
-class FeedAdapter   : RecyclerView.Adapter<FeedAdapter.PostViewModel>() {
+class FeedAdapter: RecyclerView.Adapter<FeedAdapter.PostViewModel>() {
 
      private var posts = mutableListOf<Post>()
-
 
     fun setPosts (posts: List<Post>){
         this.posts = posts as MutableList<Post>
@@ -28,9 +27,7 @@ class FeedAdapter   : RecyclerView.Adapter<FeedAdapter.PostViewModel>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = PostViewModel (
          LayoutInflater.from(parent.context)
                     .inflate(R.layout.recycler_view_item, parent, false)
-
-
-  )
+    )
 
     override fun onBindViewHolder(holder: PostViewModel, position: Int) {
         holder.itemView.post_title_tv.text = posts[position].title

@@ -37,7 +37,7 @@ class FeedFragment : Fragment() {
         feedViewModel.fetchPosts()
 
 //        adapter.setPosts(feedViewModel.posts.)
-        feedViewModel.posts.observe(viewLifecycleOwner, Observer {
+        feedViewModel.posts.observe(viewLifecycleOwner, {
 
             adapter.setPosts(it)
 
