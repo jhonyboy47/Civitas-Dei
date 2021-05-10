@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/attendant_name_text_view"
+        android:id="@+id/post_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_picture_image_view" />
 
     <TextView
-        android:id="@+id/church_text_view"
+        android:id="@+id/post_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/attendant_name_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/post_title_tv" />
 
     <TextView
         android:id="@+id/favorite_verse_text_view"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/church_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/post_content" />
 
     <Button
         android:id="@+id/log_out_button"

@@ -17,8 +17,6 @@ import com.csci448.malagon.civitasdei.LogInActivity
 import com.csci448.malagon.civitasdei.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_attendant_profile.*
 
 /**
@@ -44,7 +42,7 @@ class AttendantProfileFragment: Fragment() {
 
         viewModel = ViewModelProvider(this).get(AttendantProfileViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_attendant_profile, container, false)
-        val nameTextView: TextView = root.findViewById(R.id.attendant_name_text_view)
+        val nameTextView: TextView = root.findViewById(R.id.post_title_tv)
         val logOutButton: Button = root.findViewById(R.id.log_out_button)
         val profilePicture: ImageView = root.findViewById(R.id.profile_picture_image_view)
         val editProfile: Button = root.findViewById(R.id.edit_profile_button)
@@ -95,8 +93,8 @@ class AttendantProfileFragment: Fragment() {
                 if (christian.id == currentUser?.uid.toString()) {
 
                     favorite_verse_text_view.setText(christian.favoriteVerse.toString())
-                    church_text_view.setText("Attends: ${christian.church}")
-                    attendant_name_text_view.setText(christian.name)
+                    post_content.setText("Attends: ${christian.church}")
+                    post_title_tv.setText(christian.name)
 
                 }
             }

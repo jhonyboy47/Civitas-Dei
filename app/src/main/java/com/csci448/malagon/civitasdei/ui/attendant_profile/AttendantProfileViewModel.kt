@@ -14,13 +14,18 @@ class AttendantProfileViewModel : ViewModel() {
     val result: LiveData<Exception?>
             get() = _result
 
+
+
     private val _christians = MutableLiveData<List<Christian>>()
     val christians: LiveData<List<Christian>>
         get() = _christians
 
+
+
     private val _christian = MutableLiveData<Christian>()
     val christian: LiveData<Christian>
         get() = _christian
+
 
 
     private val dbChristians = FirebaseDatabase.getInstance().getReference(NODE_CHRISTIANS)

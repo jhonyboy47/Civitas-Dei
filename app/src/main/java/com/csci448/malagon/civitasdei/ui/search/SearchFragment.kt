@@ -12,8 +12,8 @@ import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
 import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.databinding.FragmentSearchBinding
-import com.google.android.gms.maps.MapFragment
-import com.google.android.gms.maps.SupportMapFragment
+//import com.google.android.gms.maps.MapFragment
+//import com.google.android.gms.maps.SupportMapFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
