@@ -2,13 +2,19 @@ package com.csci448.malagon.civitasdei.ui.search
 
 import android.content.Context
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
+import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.databinding.FragmentSearchBinding
+import com.google.android.gms.maps.MapFragment
+import com.google.android.gms.maps.SupportMapFragment
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Author: Zabdiyel Tan
@@ -20,6 +26,7 @@ class SearchFragment: Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!  // valid b/n onCreateView and onDestroyView() only
+
 
     companion object {
         private const val LOG_TAG = "448.ChurchProfileFrag"
@@ -55,6 +62,8 @@ class SearchFragment: Fragment() {
                 )
             findNavController().navigate(action)
         }
+
+
         return binding.root
     }
 
