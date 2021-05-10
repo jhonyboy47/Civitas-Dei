@@ -53,9 +53,6 @@
             android:name="churchId"
             app:argType="java.util.UUID" />
         <action
-            android:id="@+id/action_churchProfileFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
-        <action
             android:id="@+id/action_churchProfileFragment_to_navigation_home"
             app:destination="@id/navigation_discover" />
     </fragment>
@@ -66,9 +63,6 @@
         <action
             android:id="@+id/action_resultListFragment_to_churchProfileFragment"
             app:destination="@id/churchProfileFragment" />
-        <argument
-            android:name="searchTerms"
-            app:argType="string" />
         <action
             android:id="@+id/action_resultListFragment_to_searchFragment"
             app:destination="@id/searchFragment" />

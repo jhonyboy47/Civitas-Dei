@@ -40,24 +40,6 @@ class ChurchProfileFragment: Fragment() {
         _binding = FragmentChurchProfileBinding.inflate(inflater, container, false)
 
 
-//        val ref = FirebaseDatabase.getInstance().getReference("Churches")
-//        val churchID = ref.push().key
-//        val church = churchID?.let { Church(it, "Intimidad Con Dios", "Returning family to its original design", 42) }
-//
-//        if (churchID != null) {
-//            ref.child(churchID).setValue(church).addOnCompleteListener({
-//                Toast.makeText(this.context, "Church saved succesfully", Toast.LENGTH_LONG ).show()
-//            })
-//        }
-//
-//        if (church != null) {
-//            binding.churchBioTextView.text = church.bio
-//            binding.churchNameTextView.text = church.name
-//            binding.numLikesTextView.text = church.attendants.toString()
-//
-//        }
-
-
         return binding.root
     }
 

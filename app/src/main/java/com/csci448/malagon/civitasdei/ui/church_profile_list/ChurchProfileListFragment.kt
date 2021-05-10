@@ -11,8 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.csci448.malagon.civitasdei.R
 import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
 import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileListBinding
+import kotlinx.android.synthetic.main.fragment_church_profile_list.*
 import java.util.*
 
 /**
@@ -23,35 +25,12 @@ import java.util.*
  */
 class ChurchProfileListFragment: Fragment() {
 
-    private var _binding: FragmentChurchProfileListBinding? = null
-    private val binding get() = _binding!!  // valid b/n onCreateView and onDestroyView() only
 
+
+    private lateinit var churchProfileListViewModel: ChurchProfileListViewModel
+    private lateinit var adapter: ChurchProfileListAdapter
     companion object {
         private const val LOG_TAG = "448.ResultListFrag"
-    }
-
-    private lateinit var adapter: ChurchProfileListAdapter
-    private fun updateUI(entries: List<ChurchProfileEntry>) {
-        this.adapter = ChurchProfileListAdapter(entries)  { entry: ChurchProfileEntry -> Unit
-            val action = ChurchProfileListFragmentDirections
-                    .actionResultListFragmentToChurchProfileFragment(churchId = entry.id)
-            findNavController().navigate(action)
-        }
-        binding.churchProfileListRecyclerView.adapter = this.adapter
-    }
-
-    override fun onAttach(context: Context) {
-        Log.d(LOG_TAG, "onAttach() called")
-        super.onAttach(context)
-    }
-
-    private lateinit var entryListViewModel: ChurchProfileListViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val factory = ChurchProfileListViewModelFactory(requireContext())
-        entryListViewModel = ViewModelProvider(this@ChurchProfileListFragment, factory)
-            .get(ChurchProfileListViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -59,32 +38,32 @@ class ChurchProfileListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(LOG_TAG, "onCreateView() called")
-        _binding = FragmentChurchProfileListBinding.inflate(inflater, container, false)
-        this.updateUI(emptyList())
-        binding.churchProfileListRecyclerView.layoutManager = LinearLayoutManager(context)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.d(LOG_TAG, "onViewCreated() called")
-        super.onViewCreated(view, savedInstanceState)
+        adapter = ChurchProfileListAdapter()
 
-        entryListViewModel.entryListLiveData.observe(
-                viewLifecycleOwner,
-                { entries ->
-                    entries?.let {
-                        Log.d(LOG_TAG, "Got entries ${entries.size}")
-                        updateUI(entries)
-                    }
-                }
-        )
+        churchProfileListViewModel =
+            ViewModelProvider(this).get(ChurchProfileListViewModel::class.java)
+
+        val root = inflater.inflate(R.layout.fragment_church_profile_list, container, false)
+
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         Log.d(LOG_TAG, "onActivityCreated() called")
         super.onActivityCreated(savedInstanceState)
+
+        church_profile_list_recycler_view.adapter = adapter
+        churchProfileListViewModel.fetchChurches()
+
+        churchProfileListViewModel.churches.observe( viewLifecycleOwner, androidx.lifecycle.Observer {
+
+            adapter.setChurches(it)
+
+        })
     }
+
+
 
     override fun onStart() {
         Log.d(LOG_TAG, "onStart() called")
@@ -115,8 +94,7 @@ class ChurchProfileListFragment: Fragment() {
     override fun onDestroy() {
         Log.d(LOG_TAG, "onDestroy() called")
         super.onDestroy()
-        _binding = null
-    }
+     }
 
     override fun onDetach() {
         Log.d(LOG_TAG, "onDetach() called")

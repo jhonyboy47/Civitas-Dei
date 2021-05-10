@@ -55,11 +55,10 @@ class SearchFragment: Fragment() {
                 .actionSearchFragmentToNavigationHome()
             findNavController().navigate(action)
         }
+
         binding.searchButton.setOnClickListener {
-            val action = SearchFragmentDirections
-                .actionSearchFragmentToResultListFragment(
-                    binding.searchBar.text.toString()
-                )
+            val action = SearchFragmentDirections.actionSearchFragmentToResultListFragment()
+
             findNavController().navigate(action)
         }
 

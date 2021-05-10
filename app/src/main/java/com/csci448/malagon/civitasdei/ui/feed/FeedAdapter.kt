@@ -12,11 +12,7 @@ import kotlinx.android.synthetic.main.recycler_view_item.view.*
 
 class FeedAdapter   : RecyclerView.Adapter<FeedAdapter.PostViewModel>() {
 
-
-
-
-    var post = Post("Post from FeedAdapter", "FeedAdapter", "Content")
-    private var posts = mutableListOf<Post>(post)
+     private var posts = mutableListOf<Post>()
 
 
     fun setPosts (posts: List<Post>){
