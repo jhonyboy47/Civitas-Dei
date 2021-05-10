@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.csci448.malagon.civitasdei.FBdata.Christian
 import com.csci448.malagon.civitasdei.FBdata.NODE_CHRISTIANS
 import com.csci448.malagon.civitasdei.databinding.ActivityMainBinding
+import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
