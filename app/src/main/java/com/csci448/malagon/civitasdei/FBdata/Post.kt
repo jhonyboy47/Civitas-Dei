@@ -7,5 +7,6 @@ data class Post(
     @get:Exclude
     var id: String = "",
     var title: String = "",
-    var content: String = "") {
+    var content: String = "",
+    var postee: String = "") {
 }

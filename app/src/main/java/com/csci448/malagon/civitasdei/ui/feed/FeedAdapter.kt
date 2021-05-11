@@ -32,6 +32,7 @@ class FeedAdapter: RecyclerView.Adapter<FeedAdapter.PostViewModel>() {
     override fun onBindViewHolder(holder: PostViewModel, position: Int) {
         holder.itemView.post_title_tv.text = posts[position].title
         holder.itemView.post_content_tv.text = posts[position].content
+        holder.itemView.post_postee_tv.text = posts[position].postee
     }
 
     class PostViewModel( val view: View) : RecyclerView.ViewHolder(view)

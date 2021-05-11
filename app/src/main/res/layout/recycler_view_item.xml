@@ -20,7 +20,7 @@
       android:id="@+id/post_title_tv"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="Post Title"
+      android:text="@string/title_post"
       android:textSize="20sp"
       android:textColor="@android:color/black"
       app:layout_constraintTop_toTopOf="@+id/post_picture"
@@ -41,7 +41,19 @@
       app:layout_constraintHorizontal_bias="0.050"
       app:layout_constraintStart_toStartOf="parent" />
 
-<!--  <TextView-->
+  <TextView
+      android:id="@+id/post_postee_tv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/title_postee"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.913"
+      app:layout_constraintStart_toEndOf="@+id/post_title_tv"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.186" />
+
+  <!--  <TextView-->
 <!--      android:id="@+id/post_time_tv"-->
 <!--      android:layout_width="wrap_content"-->
 <!--      android:layout_height="wrap_content"-->

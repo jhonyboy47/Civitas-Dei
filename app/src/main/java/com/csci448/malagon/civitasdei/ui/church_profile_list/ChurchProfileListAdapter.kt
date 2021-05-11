@@ -4,12 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.csci448.malagon.civitasdei.ChurchViewModel
 import com.csci448.malagon.civitasdei.FBdata.Church
 import com.csci448.malagon.civitasdei.R
-import kotlinx.android.synthetic.main.fragment_church_profile_list.view.*
-import kotlinx.android.synthetic.main.list_item_church_profile.view.*
-import kotlinx.android.synthetic.main.recycler_view_item_1.view.*
+import kotlinx.android.synthetic.main.recycler_view_church_item.view.*
 
 class ChurchProfileListAdapter(
         private var churches: List<Church>,
@@ -27,11 +24,12 @@ class ChurchProfileListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ChurchViewModel (
         LayoutInflater.from(parent.context)
-                .inflate(R.layout.list_item_church_profile, parent, false)
+                .inflate(R.layout.recycler_view_church_item, parent, false)
     )
 
     override fun onBindViewHolder(holder: ChurchViewModel, position: Int) {
-        holder.itemView.result_title.text = churches[position].name
+        holder.itemView.church_name_tv.text = churches[position].name
+        holder.itemView.church_mission_tv.text = churches[position].mission
         holder.itemView.setOnClickListener {
             clickListener(churches[position])
         }
