@@ -55,16 +55,16 @@ class DiscoverFragment : Fragment()  {
                 ViewModelProvider(this).get(DiscoverViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_discover, container, false)
 
-        val profileCheckSwitch: Switch = root.findViewById(R.id.test_church_profile_switch)
+//        val profileCheckSwitch: Switch = root.findViewById(R.id.test_church_profile_switch)
         val profile: Button = root.findViewById(R.id.test_profile_button)
         profile.setOnClickListener {
-            if(!profileCheckSwitch.isChecked){
+//            if(!profileCheckSwitch.isChecked){
 
                 val action = DiscoverFragmentDirections.actionNavigationHomeToAttendantProfileFragment()
                 Navigation.findNavController(root).navigate(action)
-            }
-            else
-                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_churchProfileFragment)
+//            }
+//            else
+//                Navigation.findNavController(root).navigate(R.id.action_navigation_home_to_churchProfileFragment)
         }
 
         val searchButton: Button = root.findViewById(R.id.search_nav_button)

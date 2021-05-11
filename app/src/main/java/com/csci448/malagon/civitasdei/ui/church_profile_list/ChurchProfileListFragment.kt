@@ -1,25 +1,17 @@
 package com.csci448.malagon.civitasdei.ui.church_profile_list
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.csci448.malagon.civitasdei.FBdata.Church
 import com.csci448.malagon.civitasdei.R
-import com.csci448.malagon.civitasdei.data.ChurchProfileEntry
-import com.csci448.malagon.civitasdei.databinding.FragmentChurchProfileListBinding
-import com.csci448.malagon.civitasdei.ui.feed.FeedViewModel
 import kotlinx.android.synthetic.main.fragment_church_profile_list.*
-import kotlinx.android.synthetic.main.list_item_church_profile.*
-import java.util.*
 
 /**
  * Author: Zabdiyel Tan
@@ -67,7 +59,6 @@ class ChurchProfileListFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        church_profile_list_recycler_view.adapter = adapter
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
