@@ -31,6 +31,7 @@ class ChurchProfileListFragment: Fragment() {
 
     private lateinit var viewModel: ChurchProfileListViewModel
     private lateinit var adapter: ChurchProfileListAdapter
+    private val args: ChurchProfileListFragmentArgs by navArgs()
 
     companion object {
         private const val LOG_TAG = "448.ChurchProfileListFrag"
@@ -59,10 +60,7 @@ class ChurchProfileListFragment: Fragment() {
 
         viewModel =
                 ViewModelProvider(this).get(ChurchProfileListViewModel::class.java)
-        viewModel.fetchChurches()
-
-
-
+        viewModel.fetchChurches(args.searchTerms ?: "")
         val root = inflater.inflate(R.layout.fragment_church_profile_list, container, false)
         return root
     }
@@ -78,7 +76,6 @@ class ChurchProfileListFragment: Fragment() {
 
         val churches = viewModel.churches.value ?: emptyList()
         updateUI(churches)
-
         viewModel.churches.observe(
             viewLifecycleOwner,
             { churches ->
