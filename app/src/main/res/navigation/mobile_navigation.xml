@@ -100,7 +100,7 @@
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.csci448.malagon.civitasdei.ui.attendant_profile.EditProfileFragment"
-        android:label="edit_profile_fragment"
+        android:label="Edit Profile"
         tools:layout="@layout/edit_profile_fragment" >
         <action
             android:id="@+id/action_editProfileFragment_to_attendantProfileFragment"
