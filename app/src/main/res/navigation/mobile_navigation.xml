@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.csci448.malagon.civitasdei.ui.search.SearchFragment"
-        android:label="SearchFragment" >
+        android:label="Search" >
         <action
             android:id="@+id/action_searchFragment_to_resultListFragment"
             app:destination="@id/churchProfileListFragment" />
@@ -48,7 +48,7 @@
     <fragment
         android:id="@+id/churchProfileFragment"
         android:name="com.csci448.malagon.civitasdei.ui.church_profile.ChurchProfileFragment"
-        android:label="ChurchProfileFragment" >
+        android:label="Church Profile" >
         <argument
             android:name="name"
             app:argType="string" />
@@ -70,7 +70,7 @@
     <fragment
         android:id="@+id/churchProfileListFragment"
         android:name="com.csci448.malagon.civitasdei.ui.church_profile_list.ChurchProfileListFragment"
-        android:label="ChurchProfileListFragment">
+        android:label="Search Results">
         <action
             android:id="@+id/action_resultListFragment_to_churchProfileFragment"
             app:destination="@id/churchProfileFragment" />
@@ -88,7 +88,7 @@
     <fragment
         android:id="@+id/attendantProfileFragment"
         android:name="com.csci448.malagon.civitasdei.ui.attendant_profile.AttendantProfileFragment"
-        android:label="AttendantProfileFragment" >
+        android:label="My Profile" >
         <action
             android:id="@+id/action_attendantProfileFragment_to_navigation_home2"
             app:destination="@id/navigation_discover"

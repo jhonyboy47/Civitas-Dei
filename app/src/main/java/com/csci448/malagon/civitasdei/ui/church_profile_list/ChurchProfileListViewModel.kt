@@ -58,7 +58,13 @@ class ChurchProfileListViewModel(): ViewModel() {
 
                         church?.id = snap.key.toString()
 
-                        if (name == mySearchTerms) {
+                        if (searchTerms == null) {
+                            church.let {
+                                if (it != null) {
+                                    churches.add(it)
+                                }
+                            }
+                        } else if (name == mySearchTerms) {
                             church.let {
                                 if (it != null) {
                                     churches.add(it)
