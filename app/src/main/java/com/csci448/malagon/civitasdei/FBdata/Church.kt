@@ -7,7 +7,8 @@ data class Church(
     var id: String = "",
     var name: String = "",
     var mission: String = "",
-    var members: Int = 0
+    var members: Int = 0,
+    var likes: Int = 0
     /*var attendants: List<Christian>*/  ){
 
 }

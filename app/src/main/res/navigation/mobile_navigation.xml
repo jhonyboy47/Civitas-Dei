@@ -50,11 +50,22 @@
         android:name="com.csci448.malagon.civitasdei.ui.church_profile.ChurchProfileFragment"
         android:label="ChurchProfileFragment" >
         <argument
-            android:name="churchId"
+            android:name="name"
             app:argType="string" />
         <action
             android:id="@+id/action_churchProfileFragment_to_navigation_home"
             app:destination="@id/navigation_discover" />
+        <argument
+            android:name="attendants"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="likes"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="bio"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/churchProfileListFragment"

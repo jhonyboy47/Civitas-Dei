@@ -38,10 +38,15 @@ class ChurchProfileListFragment: Fragment() {
 
     private fun updateUI(churches: List<Church>) {
         Log.d(LOG_TAG, "updateUI() called")
-        adapter = ChurchProfileListAdapter(viewModel.churches as List<Church>) {
+        adapter = ChurchProfileListAdapter(churches) {
             church: Church -> Unit
             val action = ChurchProfileListFragmentDirections
-                    .actionResultListFragmentToChurchProfileFragment(church.name)
+                    .actionResultListFragmentToChurchProfileFragment(
+                            church.name,
+                            church.members,
+                            church.likes,
+                            church.mission
+                    )
             findNavController().navigate(action)
         }
         church_profile_list_recycler_view.adapter = adapter
@@ -56,8 +61,7 @@ class ChurchProfileListFragment: Fragment() {
                 ViewModelProvider(this).get(ChurchProfileListViewModel::class.java)
         viewModel.fetchChurches()
 
-        val churches = viewModel.churches.value ?: emptyList()
-        updateUI(churches)
+
 
         val root = inflater.inflate(R.layout.fragment_church_profile_list, container, false)
         return root
@@ -65,12 +69,15 @@ class ChurchProfileListFragment: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        church_profile_list_recycler_view.adapter = adapter
+//        church_profile_list_recycler_view.adapter = adapter
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d(LOG_TAG, "onViewCreated() called")
+
+        val churches = viewModel.churches.value ?: emptyList()
+        updateUI(churches)
 
         viewModel.churches.observe(
             viewLifecycleOwner,
