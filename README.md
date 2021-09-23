@@ -1,5 +1,5 @@
 # Civitas-Dei
 
-Simple Mobile Application made to connect the Gods Church around the world :)
+Mobile Application created to connect the Gods Church together :)
 
 PS: Feedback on aesthetics would be greatly appreciated.
