@@ -92,14 +92,12 @@ class AttendantProfileFragment: Fragment() {
                 //User id is what is being used here to find unique
                 if (christian.id == currentUser?.uid.toString()) {
 
-                    favorite_verse_text_view.setText(christian.favoriteVerse.toString())
-                    post_content.setText("Attends: ${christian.church}")
                     post_title_tv.setText(christian.name)
+                    post_content.setText("Attends: ${christian.church}")
+                    favorite_verse_text_view.setText(christian.favoriteVerse.toString())
 
                 }
             }
-
-            //            favorite_verse_text_view.text =     ("We are testing herrre")
 
         })
     }
